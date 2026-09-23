@@ -1,0 +1,37 @@
+site_name: Desarrollo Web en Entorno Servidor 2026/27
+nav:
+  - Inicio: index.md
+  - PREVIO:
+      - Estandares de renombrado de archivos: ut00.md
+  - BLOQUE 1:
+      - UT01 - Lenguajes de guiones (script) cliente/serviror: ut01.md
+      - practica01.md
+theme:
+  name: readthedocs
+  locale: es
+  features:
+    - content.code.copy 
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.mark
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+  - pymdownx.arithmatex
+  - pymdownx.blocks.admonition
+  - pymdownx.magiclink
+  - pymdownx.keys
+  - pymdownx.highlight
+  - pymdownx.blocks.definition
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  - js/copy-button.js
+
+extra_css:
+  - css/estilo.css
