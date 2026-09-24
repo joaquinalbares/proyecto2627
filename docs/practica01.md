@@ -2,56 +2,74 @@
 
 ---
 
-## 1. CONFIGURACIÓN DE GIT Y GITHUB.
+/// admonition | **Terminal de Windows**
+    type: hint
 
-/// admonition | **REQUISITOS PREVIOS**
-
-Esta práctica asume que se ha instalado y configurado [GIT](https://git-scm.com) en el equipo del alumno y que se está usando una máquina Windows.
+Para abrir el **Símbolo del sistema** (terminal o intérprete de comandos), pulsa las teclas `Windows + R`, escribe `cmd` en el recuadro que aparece y pulsa ```Enter```.
 ///
 
-### Paso 1: Crear el repositorio en GitHub.
 
+## 1. INSTALACIÓN Y CONFIGURACIÓN DE GIT.
+
+### Paso 1: Descargar el instalador oficial
+Nos descargamos la última versión de ```GIT``` desde la web oficial **[GIT](https://git-scm.com)**.
+
+### Paso 2: Ejecutar el instalador
+![Instalador de Git](img/pr01-img18.png) 
+
+### Paso 3: Configuramos GIT
+
+Es necesario da un nombre de usuario y un correo electrónico para identificar quien trabja en el repositorio. Para ello, abrimos el ```CMD``` y escribimos las dos instrucciones siguientes:
+![Configurar Git](img/pr01-img19.png) 
+
+### Paso 4: Verficamos la instalación
+Es necesario da un nombre de usuario y un correo electrónico para identificar quien trabja en el repositorio.
+![Configurar Git](img/pr01-img19.png) 
+
+![Configurar Git](img/pr01-img19.png) 
+
+## 2. CONFIGURACIÓN DEL CLIENTE DE TERMINAL DE GITHUB.
+
+### Paso 1: Crear el repositorio en GitHub.
 Se debe crear con el nombre de ```proyecto2627``` y hacerlo público. El archivo ```README.md``` debe incluir infiormación básica del proyecto y la asignatura.
 
 ### Paso 2: instalar el cliente de GitHub para la terminal.
 
-Entra en la página [cli.github.com](https://cli.github.com) y sigue los pasos para instalar el cliente de terminal en el equipo.
+Entra en la página [cli.github.com](https://cli.github.com) y sigue los pasos para instalar el cliente de terminal en el equipo, dependiendo del sistema operativo. En nuestro caso podemos optar por el archivo ```MSI``` si no queremos usar winget.
 
 ### Paso 3: configura ```gh``` con tus credenciales de GitHub.
 
 Ejecuta el comando ```gh auth login`` y sigue los pasos siguientes:
 
+1. Pulsamos ```Enter``` para elegir la primera opción, pues vamos a usar GitHub.
 ![pr01-img01](img/pr01-img01.png) 
 
-Elegimos la primera opción, pues vamos a usar GitHub.
-
+2. Pulsamos ```Enter``` para autorizar a ```gh```a través de la web.
 ![pr01-img02](img/pr01-img02.png)
 
-Elegimos HTTPS para autorizar a ```gh```a través de la web.
-
+4. Escribimos ```Y``` y pulsamos ```Enter```para usar nuestra credenciales.
 ![pr01-img03](img/pr01-img03.png)
 
-Escribimos ```Y``` y pulsamos ```Enter```para usar nuestra credenciales.
+5. Pulsamos ```Enter``` para elegir la primera opción e identificarnos a través del navegador.
 
 ![pr01-img04](img/pr01-img04.png)
 
-Elegimos la primera opción para identificarnos a través del navegador.
+6. Nos fijamos que haya generado el código (NO HACE FALTA COPIARLO, PUES SE HACE AUTOMÁTICAMENTE) y pulsamos ```Enter```. Se nos abrirá el navegador para que nos identifiquemos en GitHub si no lo habíamos hecho antes.  
 
 ![pr01-img05](img/pr01-img05.png)
 
-Nos fijamos que haya generado el código (NO HACE FALTA COPIARLO, PUES SE HACE AUTOMÁTICAMENTE) y pulsamos ```Enter```. Se nos abrirá el navegador para que nos identifiquemos en GitHub si no lo habíamos hecho antes. 
+7. Nos identificamos y pegamos el código del paso anterior.
 
 ![pr01-img06](img/pr01-img06.png)
 
-Nos identificamos y pegamos el código del paso anterior.
+8. Hacemos clic en ```Authorize github```
 
 ![pr01-img07](img/pr01-img07.png)
 
-Pulsamos en ```Authorize github```
+9. Si todo ha ido bien, el proceso finaliza y vemos de nuevo el prompt de la terminal.
 
 ![pr01-img08](img/pr01-img08.png)
 
-Si todo ha ido bien, el proceso finaliza aquí.
 
 ## 2. INSTALACIÓN DE PYTHON
 
@@ -65,7 +83,7 @@ Esta es una guía paso a paso para descargar e instalar **Python** en sistemas o
 
 ---
 
-### **Paso 1: Descargar el instalador oficial**
+### Paso 1: Descargar el instalador oficial
 
 1. Abre tu navegador web y entra en el sitio oficial de Python: [python.org](https://www.python.org/downloads/windows/).
 2. Elegimos la última versión estable.
@@ -74,83 +92,50 @@ Esta es una guía paso a paso para descargar e instalar **Python** en sistemas o
 
 ---
 
-### **Paso 2: Ejecutar el instalador**
+### Paso 2: Ejecutar el instalador
 
 1. Ve a la carpeta de **Descargas** de tu ordenador y haz doble clic sobre el archivo ejecutable `.exe` descargado (ejemplo: `python-3.12.x-amd64.exe`).
 2. Aparecerá la ventana inicial del instalador.
 
+![pr01-img13](img/pr01-img13.png)
+
 ---
 
-### **Paso 3: Marcar la opción del PATH (¡Paso crítico!)**
+### Paso 3: Marcar la opción del PATH (¡fundamental!)
 
 Antes de hacer clic en cualquier botón de la ventana del instalador, debes **marcar la casilla inferior** que dice **"Add python.exe to PATH"** (o *"Add Python to environment variables"*).
 
-> **¿Por qué es importante?**
-> Marcar esta casilla te permitirá ejecutar Python y sus herramientas (como `pip`) desde cualquier ventana de comandos (Terminal o CMD) sin tener que configurar variables de entorno manualmente.
+/// admonition | **¿Por qué es importante?**
+    type: caution
 
-```text
-  ┌──────────────────────────────────────────────────────────────┐
-  │ Python 3.12.x (64-bit) Setup                                 │
-  │                                                              │
-  │ Select Install Now or Customize Install...                   │
-  │                                                              │
-  │   [ Install Now ]                                            │
-  │   C:\Users\Usuario\AppData\Local\Programs\Python\...         │
-  │                                                              │
-  │   [ Customize installation ]                                 │
-  │                                                              │
-  │ ☒ Use admin privileges when installing py.exe                │
-  │ ☒ Add python.exe to PATH   ◄─────────────────── ¡MARCAR AQUÍ!│
-  └──────────────────────────────────────────────────────────────┘
-
-```
+Al marcar esta casilla podremos ejecutar Python y sus herramientas (como `pip` , que es la que vamos a necesitar) desde cualquier ventana de comandos (Terminal o CMD) sin tener que configurar variables de entorno manualmente.
+///
 
 ---
 
-### **Paso 4: Iniciar la instalación**
+### Paso 4: Iniciar la instalación
 
 1. Una vez marcada la casilla del PATH, haz clic en **"Install Now"**.
 2. Si Windows te pide confirmación mediante la ventana de *Control de cuentas de usuario* ("¿Deseas permitir que esta aplicación haga cambios en el dispositivo?"), haz clic en **Sí**.
 3. Espera a que se complete la barra de progreso (*Setup Progress*).
 
-```text
-  ┌──────────────────────────────────────────────────────────────┐
-  │ Python 3.12.x (64-bit) Setup                                 │
-  │                                                              │
-  │ Setup Progress                                               │
-  │ Installing:                                                  │
-  │ [████████████████████████░░░░░░░░]                           │
-  └──────────────────────────────────────────────────────────────┘
-
-```
+![pr01-img14](img/pr01-img14.png)
 
 ---
 
-### **Paso 5: Finalizar la instalación**
+### Paso 5: Finalizar la instalación
 
 1. Cuando la instalación concluya con éxito, verás el mensaje **"Setup was successful"**.
 2. Si ves una opción al final que dice **"Disable path length limit"**, se recomienda hacer clic en ella (elimina la restricción de Windows de 260 caracteres para rutas de archivos largos).
 3. Haz clic en el botón **Close**.
 
-```text
-  ┌──────────────────────────────────────────────────────────────┐
-  │ Python 3.12.x (64-bit) Setup                                 │
-  │                                                              │
-  │ Setup was successful                                         │
-  │ New to Python? Start with the online tutorial...             │
-  │                                                              │
-  │                                              ┌───────────┐   │
-  │                                              │   Close   │   │
-  │                                              └───────────┘   │
-  └──────────────────────────────────────────────────────────────┘
-
-```
+![pr01-img15](img/pr01-img15.png)
 
 ---
 
-### **Paso 6: Comprobar que Python se ha instalado correctamente**
+### Paso 6: Comprobar que Python se ha instalado correctamente
 
-1. Presiona las teclas `Windows + R` en tu teclado, escribe `cmd` y presiona **Enter** para abrir el **Símbolo del sistema**.
+1. Abrimos una ventana de terminal.
 2. Escribe el siguiente comando y pulsa **Enter**:
 
 ```bash
