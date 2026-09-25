@@ -88,42 +88,18 @@
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#3-instalacion-de-properdocs">3. INSTALACIÓN DE PROPERDOCS</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#paso-2-instalacion-de-paquetes-con-pip">Paso 2: Instalación de paquetes con pip</a>
-    </li>
-        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#4-inicializacion-y-configuracion-del-proyecto">4. INICIALIZACIÓN Y CONFIGURACIÓN DEL PROYECTO</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#paso-3-generar-la-estructura-base">Paso 3: Generar la estructura base</a>
+    <li class="toctree-l3"><a class="reference internal" href="#paso-1-clonar-el-repositorio-remoto">Paso 1: Clonar el repositorio remoto</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#paso-4-configurar-el-archivo-mkdocsyml">Paso 4: Configurar el archivo mkdocs.yml</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#5-creacion-de-contenidos-en-markdown">5. CREACIÓN DE CONTENIDOS EN MARKDOWN</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#paso-5-generar-los-archivos-de-documentacion">Paso 5: Generar los archivos de documentación</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#a-crear-docsindexmd">A. Crear docs/index.md:</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#b-crear-docsestandaresnombradomd">B. Crear docs/estandares/nombrado.md:</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#c-crear-docsservidorrespuestas-httpmd">C. Crear docs/servidor/respuestas-http.md:</a>
-    </li>
-        </ul>
+    <li class="toctree-l3"><a class="reference internal" href="#paso-2-configurar-el-archivo-properdocsyml">Paso 2: Configurar el archivo properdocs.yml</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#6-previsualizacion-y-compilacion">6. PREVISUALIZACIÓN Y COMPILACIÓN</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#paso-6-servir-la-documentacion-en-tiempo-real">Paso 6: Servir la documentación en tiempo real</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#paso-7-compilar-el-sitio-para-produccion-site">Paso 7: Compilar el sitio para producción (site/)</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#7-actividad-trabajo-para-el-alumnado-libreta">7. ACTIVIDAD / TRABAJO PARA EL ALUMNADO ([LIBRETA])</a>
+    <li class="toctree-l2"><a class="reference internal" href="#6-publicacion-en-github-pages">6. PUBLICACIÓN EN GITHUB PAGES</a>
     </li>
     </ul>
                 </li>
@@ -291,34 +267,46 @@
 </div>
 <hr />
 <h2 id="3-instalacion-de-properdocs">3. INSTALACIÓN DE PROPERDOCS</h2>
-<h3 id="paso-2-instalacion-de-paquetes-con-pip">Paso 2: Instalación de paquetes con <code>pip</code></h3>
-<p>Con el entorno virtual activado, instala el paquete principal de MkDocs y el paquete del tema Read the Docs:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Actualizar pip</span>
-pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
-
-<span class="c1"># Instalar MkDocs y el tema readthedocs</span>
-pip<span class="w"> </span>install<span class="w"> </span>properdocs<span class="w"> </span>mkdocs-readthedocs-theme
-</code></pre></div>
+<p>Para elaborar la documentación de nuestro proyecto,vamos a instalar la herramienta <strong><a href="https://properdocs.org/">properdocs</a></strong>.</p>
+<div class="admonition note">
+<p class="admonition-title"><strong>ENTORNO DE INSTALACIÓN</strong></p>
+<p>En nuestro caso, y dado que no vamos a desarrollar en python, todas las librerías las instalaremos globalmente sin activar entornos virtuales de python.</p>
+</div>
+<p>Antes de instalar las librerías vamos a actualizar pip:
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</code></pre></div></p>
+<p>Una vez actualizado, ya podemos instalar properdocs y dos temas adicionales: mkdocs y material:
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>properdocs<span class="w"> </span>properdocs-theme-mkdocs<span class="w"> </span>mkdocs-material
+</code></pre></div></p>
 <p>Para verificar que la instalación se ha realizado correctamente, ejecuta:</p>
-<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>--version
+<div class="highlight"><pre><span></span><code>properdocs<span class="w"> </span>--version
 </code></pre></div>
 <hr />
 <h2 id="4-inicializacion-y-configuracion-del-proyecto">4. INICIALIZACIÓN Y CONFIGURACIÓN DEL PROYECTO</h2>
-<h3 id="paso-3-generar-la-estructura-base">Paso 3: Generar la estructura base</h3>
-<p>Inicializa un nuevo proyecto de MkDocs dentro de la carpeta actual:</p>
-<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>new<span class="w"> </span>.
+<h3 id="paso-1-clonar-el-repositorio-remoto">Paso 1: Clonar el repositorio remoto</h3>
+<p>En primer lugar, y para asegurarnos que trabajamos con el repositorio de GitHub y que nuestros cambios se van a sincronizar correctamente, vamos a descargarnos nuestro repositorio. Para ello, en GitHub, pulsando  el botoón verde <code>code</code> y eligiendo la pestaña <code>GitHub CLI</code>, vemos el comando que tenemos que escribir par clonar nuestro repositorio.</p>
+<div class="highlight"><pre><span></span><code>gh<span class="w"> </span>repo<span class="w"> </span>clone<span class="w"> </span>joaquinalbares/proyecto2627
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul>
+<li>Cada uno clonará su repo, no el del profesor.</li>
+<li>Se recomienda crear una parpeta GitHub dentro de la carpeta de usuario para tener todos los repositorios en el mismo sitio.</li>
+</ul>
+</div>
+<p>Ahora accedemos al repositorio en inicializamos un nuevo proyecto de ProperDocs dentro de la carpeta actual:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>proyecto2627
+properdocs<span class="w"> </span>new<span class="w"> </span>.
 </code></pre></div>
 <p>Este comando habrá creado la siguiente estructura en tu directorio:</p>
-<div class="highlight"><pre><span></span><code>documentacion-dwes/
-├── docs/
-│   └── index.md          # Página principal de la documentación
-├── mkdocs.yml            # Archivo de configuración global
-└── venv/                 # Entorno virtual de Python
+<div class="highlight"><pre><span></span><code>docs/
+  └── index.md        # Página principal de la documentación
+properdocs.yml        # Archivo de configuración global
 </code></pre></div>
-<h3 id="paso-4-configurar-el-archivo-mkdocsyml">Paso 4: Configurar el archivo <code>mkdocs.yml</code></h3>
-<p>Abre el archivo <code>mkdocs.yml</code> con tu editor preferido (VS Code, Nano, Vim) y sustituye su contenido por la siguiente configuración completa que activa el tema <strong><code>readthedocs</code></strong> y organiza la navegación del sitio:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Documentación</span><span class="nv"> </span><span class="s">Técnica</span><span class="nv"> </span><span class="s">DWES&quot;</span>
-<span class="nt">site_description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Guía</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">estándares,</span><span class="nv"> </span><span class="s">arquitectura</span><span class="nv"> </span><span class="s">web</span><span class="nv"> </span><span class="s">y</span><span class="nv"> </span><span class="s">servidor</span><span class="nv"> </span><span class="s">para</span><span class="nv"> </span><span class="s">DAW&quot;</span>
+<h3 id="paso-2-configurar-el-archivo-properdocsyml">Paso 2: Configurar el archivo <code>properdocs.yml</code></h3>
+<p>Abre la carpeta del proyecto con tu editor preferido (recomiendo <strong><a href="">Zed</a><a href="https://zed.dev/">https://zed.dev/</a>)</strong> y sustituye el contenido del archivo <code>properdocs.yml</code> por la siguiente configuración completa que activa el tema <strong><code>readthedocs</code></strong> y organiza la navegación del sitio:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Proyecto</span><span class="nv"> </span><span class="s">Intermodular&quot;</span>
+<span class="nt">site_description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Proyecto</span><span class="nv"> </span><span class="s">Intermodular</span><span class="nv"> </span><span class="s">del</span><span class="nv"> </span><span class="s">Ciclo</span><span class="nv"> </span><span class="s">Formativo</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">Desarrollo</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">aplicaciones</span><span class="nv"> </span><span class="s">Web&quot;</span>
 <span class="nt">site_author</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Alumno</span><span class="nv"> </span><span class="s">DAW</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">IES</span><span class="nv"> </span><span class="s">Los</span><span class="nv"> </span><span class="s">Albares&quot;</span>
 
 <span class="c1"># Selección del tema Read the Docs</span>
@@ -333,11 +321,7 @@ pip<span class="w"> </span>install<span class="w"> </span>properdocs<span class=
 
 <span class="c1"># Estructura de navegación lateral</span>
 <span class="nt">nav</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Inicio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.php.md</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Estándares y Nombrado</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Reglas de Directorios</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">estandares/nombrado.md</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Servidor Web</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Protocolo HTTP</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servidor/respuestas-http.md</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Inicio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span>
 
 <span class="c1"># Opciones adicionales</span>
 <span class="nt">markdown_extensions</span><span class="p">:</span>
@@ -345,62 +329,18 @@ pip<span class="w"> </span>install<span class="w"> </span>properdocs<span class=
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codehilite</span>
 </code></pre></div>
 <hr />
-<h2 id="5-creacion-de-contenidos-en-markdown">5. CREACIÓN DE CONTENIDOS EN MARKDOWN</h2>
-<h3 id="paso-5-generar-los-archivos-de-documentacion">Paso 5: Generar los archivos de documentación</h3>
-<p>Crea las carpetas y los archivos especificados en la sección <code>nav</code> de tu archivo de configuración:</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>docs/estandares<span class="w"> </span>docs/servidor
-</code></pre></div>
-<h4 id="a-crear-docsindexmd">A. Crear <code>docs/index.md</code>:</h4>
-<div class="highlight"><pre><span></span><code><span class="gh"># Documentación del Módulo DWES</span>
-
-Bienvenido a la documentación oficial del módulo <span class="gs">**Desarrollo Web en Entorno Servidor**</span>.
-
-<span class="gu">## Contenidos Principales</span>
-<span class="k">*</span><span class="w"> </span>Estándares de nombrado de archivos y directorios.
-<span class="k">*</span><span class="w"> </span>Configuración de servidores web en Linux (Apache/Nginx/Lerd).
-<span class="k">*</span><span class="w"> </span>Estructura y códigos de respuesta del protocolo HTTP.
-</code></pre></div>
-<h4 id="b-crear-docsestandaresnombradomd">B. Crear <code>docs/estandares/nombrado.md</code>:</h4>
-<div class="highlight"><pre><span></span><code><span class="gh"># Estándares de Nombrado de Archivos</span>
-
-En entornos de servidor Linux, el sistema de archivos es sensible a mayúsculas y minúsculas (<span class="ge">*Case Sensitive*</span>).
-
-<span class="gu">## Reglas de Oro</span>
-<span class="k">1.</span> <span class="gs">**kebab-case:**</span> Usar minúsculas y guiones medios para archivos web (<span class="sb">`mi-pagina.php`</span>).
-<span class="k">2.</span> <span class="gs">**Sin caracteres especiales:**</span> Evitar espacios, tildes, eñes y símbolos (<span class="sb">`$`</span>, <span class="sb">`%`</span>, <span class="sb">`@`</span>).
-<span class="k">3.</span> <span class="gs">**Imágenes y Assets:**</span> Guardar imágenes en formato PNG/SVG con nombres claros (<span class="sb">`assets/img/logo-oficial.png`</span>).
-</code></pre></div>
-<h4 id="c-crear-docsservidorrespuestas-httpmd">C. Crear <code>docs/servidor/respuestas-http.md</code>:</h4>
-<div class="highlight"><pre><span></span><code><span class="gh"># Respuestas y Códigos HTTP</span>
-
-El protocolo HTTP utiliza códigos numéricos para indicar el estado de la petición.
-
-| Código | Significado | Descripción |
-| :--- | :--- | :--- |
-| <span class="gs">**200**</span> | OK | Petición procesada correctamente. |
-| <span class="gs">**301**</span> | Moved Permanently | Redirección permanente a una nueva URL. |
-| <span class="gs">**404**</span> | Not Found | El recurso o archivo no existe en el servidor. |
-| <span class="gs">**500**</span> | Internal Error | Excepción no capturada en el servidor (PHP/Python). |
-</code></pre></div>
-<hr />
 <h2 id="6-previsualizacion-y-compilacion">6. PREVISUALIZACIÓN Y COMPILACIÓN</h2>
-<h3 id="paso-6-servir-la-documentacion-en-tiempo-real">Paso 6: Servir la documentación en tiempo real</h3>
 <p>Inicia el servidor interno de pruebas de MkDocs:</p>
-<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve
+<div class="highlight"><pre><span></span><code>properdocs<span class="w"> </span>serve
 </code></pre></div>
-<p>Abre tu navegador e introduce la dirección local indicada por la terminal (por defecto, <code>[http://127.0.0.1:8000/](http://127.0.0.1:8000/)</code>). Verás la interfaz temática de <strong>Read the Docs</strong> cargada con tu contenido. Cualquier cambio que guardes en los archivos <code>.md</code> se actualizará automáticamente en la pantalla.</p>
-<h3 id="paso-7-compilar-el-sitio-para-produccion-site">Paso 7: Compilar el sitio para producción (<code>site/</code>)</h3>
-<p>Para generar el sitio estático final compuesto únicamente por HTML, CSS, JavaScript e imágenes listas para subir a cualquier servidor web (como Apache o Nginx):</p>
-<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>build
-</code></pre></div>
-<p>Este comando creará la carpeta <code>site/</code>. Su contenido es el entregable final de producción de tu documentación.</p>
+<p>Abre tu navegador e introduce la dirección local indicada por la terminal (por defecto, <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>). Verás el sitio que ha generado con la interfaz temática de <strong>Read the Docs</strong> cargada con tu contenido. Cualquier cambio que guardes en los archivos <code>.md</code> a partir de ahora y mientras estés sirvinedo el sitio, se actualizará automáticamente en la pantalla.</p>
+<p>Podemos detener el servicio pulsando <code>Ctrl+C</code>.</p>
 <hr />
-<h2 id="7-actividad-trabajo-para-el-alumnado-libreta">7. ACTIVIDAD / TRABAJO PARA EL ALUMNADO (<code>[LIBRETA]</code>)</h2>
-<ol>
-<li><strong>[LIBRETA]</strong> Copia en tu cuaderno el árbol final de directorios del proyecto generado tras ejecutar <code>mkdocs build</code>, indicando qué función cumple la carpeta <code>site/</code> frente a la carpeta <code>docs/</code>.</li>
-<li><strong>[LIBRETA]</strong> Explica qué ocurriría si intentas ejecutar el comando <code>mkdocs serve</code> en una terminal nueva sin haber activado previamente el entorno virtual (<code>source venv/bin/activate</code>).</li>
-<li><strong>[PRÁCTICA EN EQUIPO]</strong> Personaliza el archivo <code>mkdocs.yml</code> añadiendo una nueva sección en el menú lateral titulada <code>"Entorno Lerd"</code> que contenga una guía rápida con los comandos básicos de terminal para desplegar un contenedor web.</li>
-</ol>
+<h2 id="6-publicacion-en-github-pages">6. PUBLICACIÓN EN GITHUB PAGES</h2>
+<p>Cuando queramos publicar nuestro sitio para que sea visible, podemos usar el comando que proporciona properdocs, y que funcionará correctamente sin hacer ninguna configuración más si hemos seguido todos los pasos de esta práctica.</p>
+<p>Para ello escribimos:</p>
+<div class="highlight"><pre><span></span><code>properdocs<span class="w"> </span>gh-deploy
+</code></pre></div>
               
             </div>
           </div><footer>
