@@ -1,6 +1,6 @@
 site_name: Proyecto 2026/27
 nav:
-  - Inicio: index.md
+  - HOME: https://joaquinalbares.github.io
   - BLOQUE 1:
       - practica01.md
 theme:

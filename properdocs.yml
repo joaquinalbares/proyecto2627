@@ -1,4 +1,4 @@
-site_name: Desarrollo Web en Entorno Servidor 2026/27
+site_name: Proyecto Interdisciplinar 2026/27
 nav:
   - PRACTICA 01 - CONFIGURACIÓN E INSTALACIÓN DEL ENTORNO: practica01.md
 
@@ -6,7 +6,7 @@ theme:
   name: readthedocs
   locale: es
   features:
-    - content.code.copy 
+    - content.code.copy
 
 markdown_extensions:
   - pymdownx.superfences

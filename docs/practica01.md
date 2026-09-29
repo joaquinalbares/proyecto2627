@@ -184,23 +184,28 @@ python get-pip.py
 
 ## 3. INSTALACIÓN DE PROPERDOCS
 
-### Paso 2: Instalación de paquetes con `pip`
+Para elaborar la documentación de nuestro proyecto,vamos a instalar la herramienta **[properdocs](https://properdocs.org/)**.
 
-Con el entorno virtual activado, instala el paquete principal de MkDocs y el paquete del tema Read the Docs:
+/// admonition | **ENTORNO DE INSTALACIÓN**
+    type: note
 
+  En nuestro caso, y dado que no vamos a desarrollar en python, todas las librerías las instalaremos globalmente sin activar entornos virtuales de python.
+///
+
+Antes de instalar las librerías vamos a actualizar pip:
 ```bash
-# Actualizar pip
 pip install --upgrade pip
+```
 
-# Instalar MkDocs y el tema readthedocs
-pip install properdocs mkdocs-readthedocs-theme
-
+Una vez actualizado, ya podemos instalar properdocs y dos temas adicionales: mkdocs y material:
+```bash
+pip install properdocs properdocs-theme-mkdocs mkdocs-material
 ```
 
 Para verificar que la instalación se ha realizado correctamente, ejecuta:
 
 ```bash
-mkdocs --version
+properdocs --version
 
 ```
 
@@ -208,33 +213,44 @@ mkdocs --version
 
 ## 4. INICIALIZACIÓN Y CONFIGURACIÓN DEL PROYECTO
 
-### Paso 3: Generar la estructura base
+### Paso 1: Clonar el repositorio remoto
 
-Inicializa un nuevo proyecto de MkDocs dentro de la carpeta actual:
+En primer lugar, y para asegurarnos que trabajamos con el repositorio de GitHub y que nuestros cambios se van a sincronizar correctamente, vamos a descargarnos nuestro repositorio. Para ello, en GitHub, pulsando  el botoón verde ```code``` y eligiendo la pestaña ```GitHub CLI```, vemos el comando que tenemos que escribir par clonar nuestro repositorio.
 
 ```bash
-mkdocs new .
+gh repo clone joaquinalbares/proyecto2627
+```
 
+/// admonition 
+    type: important
+
+  - Cada uno clonará su repo, no el del profesor.
+  - Se recomienda crear una parpeta GitHub dentro de la carpeta de usuario para tener todos los repositorios en el mismo sitio.
+///
+
+
+Ahora accedemos al repositorio en inicializamos un nuevo proyecto de ProperDocs dentro de la carpeta actual:
+
+```bash
+cd proyecto2627
+properdocs new .
 ```
 
 Este comando habrá creado la siguiente estructura en tu directorio:
 
 ```text
-documentacion-dwes/
-├── docs/
-│   └── index.md          # Página principal de la documentación
-├── mkdocs.yml            # Archivo de configuración global
-└── venv/                 # Entorno virtual de Python
-
+docs/
+  └── index.md        # Página principal de la documentación
+properdocs.yml        # Archivo de configuración global
 ```
 
-### Paso 4: Configurar el archivo `mkdocs.yml`
+### Paso 2: Configurar el archivo `properdocs.yml`
 
-Abre el archivo `mkdocs.yml` con tu editor preferido (VS Code, Nano, Vim) y sustituye su contenido por la siguiente configuración completa que activa el tema **`readthedocs`** y organiza la navegación del sitio:
+Abre la carpeta del proyecto con tu editor preferido (recomiendo **[Zed]()https://zed.dev/)** y sustituye el contenido del archivo `properdocs.yml` por la siguiente configuración completa que activa el tema **`readthedocs`** y organiza la navegación del sitio:
 
 ```yaml
-site_name: "Documentación Técnica DWES"
-site_description: "Guía de estándares, arquitectura web y servidor para DAW"
+site_name: "Proyecto Intermodular"
+site_description: "Proyecto Intermodular del Ciclo Formativo de Desarrollo de aplicaciones Web"
 site_author: "Alumno DAW - IES Los Albares"
 
 # Selección del tema Read the Docs
@@ -249,11 +265,7 @@ theme:
 
 # Estructura de navegación lateral
 nav:
-  - Inicio: index.php.md
-  - Estándares y Nombrado:
-      - Reglas de Directorios: estandares/nombrado.md
-  - Servidor Web:
-      - Protocolo HTTP: servidor/respuestas-http.md
+  - Inicio: index.md
 
 # Opciones adicionales
 markdown_extensions:
@@ -264,91 +276,49 @@ markdown_extensions:
 
 ---
 
-## 5. CREACIÓN DE CONTENIDOS EN MARKDOWN
-
-### Paso 5: Generar los archivos de documentación
-
-Crea las carpetas y los archivos especificados en la sección `nav` de tu archivo de configuración:
-
-```bash
-mkdir -p docs/estandares docs/servidor
-
-```
-
-#### A. Crear `docs/index.md`:
-
-```markdown
-# Documentación del Módulo DWES
-
-Bienvenido a la documentación oficial del módulo **Desarrollo Web en Entorno Servidor**.
-
-## Contenidos Principales
-* Estándares de nombrado de archivos y directorios.
-* Configuración de servidores web en Linux (Apache/Nginx/Lerd).
-* Estructura y códigos de respuesta del protocolo HTTP.
-
-```
-
-#### B. Crear `docs/estandares/nombrado.md`:
-
-```markdown
-# Estándares de Nombrado de Archivos
-
-En entornos de servidor Linux, el sistema de archivos es sensible a mayúsculas y minúsculas (*Case Sensitive*).
-
-## Reglas de Oro
-1. **kebab-case:** Usar minúsculas y guiones medios para archivos web (`mi-pagina.php`).
-2. **Sin caracteres especiales:** Evitar espacios, tildes, eñes y símbolos (`$`, `%`, `@`).
-3. **Imágenes y Assets:** Guardar imágenes en formato PNG/SVG con nombres claros (`assets/img/logo-oficial.png`).
-
-```
-
-#### C. Crear `docs/servidor/respuestas-http.md`:
-
-```markdown
-# Respuestas y Códigos HTTP
-
-El protocolo HTTP utiliza códigos numéricos para indicar el estado de la petición.
-
-| Código | Significado | Descripción |
-| :--- | :--- | :--- |
-| **200** | OK | Petición procesada correctamente. |
-| **301** | Moved Permanently | Redirección permanente a una nueva URL. |
-| **404** | Not Found | El recurso o archivo no existe en el servidor. |
-| **500** | Internal Error | Excepción no capturada en el servidor (PHP/Python). |
-
-```
-
----
-
 ## 6. PREVISUALIZACIÓN Y COMPILACIÓN
-
-### Paso 6: Servir la documentación en tiempo real
 
 Inicia el servidor interno de pruebas de MkDocs:
 
 ```bash
-mkdocs serve
-
+properdocs serve
 ```
 
-Abre tu navegador e introduce la dirección local indicada por la terminal (por defecto, `[http://127.0.0.1:8000/](http://127.0.0.1:8000/)`). Verás la interfaz temática de **Read the Docs** cargada con tu contenido. Cualquier cambio que guardes en los archivos `.md` se actualizará automáticamente en la pantalla.
+Abre tu navegador e introduce la dirección local indicada por la terminal (por defecto, [http://127.0.0.1:8000/](http://127.0.0.1:8000/)). Verás el sitio que ha generado con la interfaz temática de **Read the Docs** cargada con tu contenido. Cualquier cambio que guardes en los archivos `.md` a partir de ahora y mientras estés sirvinedo el sitio, se actualizará automáticamente en la pantalla.
 
-### Paso 7: Compilar el sitio para producción (`site/`)
-
-Para generar el sitio estático final compuesto únicamente por HTML, CSS, JavaScript e imágenes listas para subir a cualquier servidor web (como Apache o Nginx):
-
-```bash
-mkdocs build
-
-```
-
-Este comando creará la carpeta `site/`. Su contenido es el entregable final de producción de tu documentación.
+Podemos detener el servicio pulsando `Ctrl+C`.
 
 ---
 
-## 7. ACTIVIDAD / TRABAJO PARA EL ALUMNADO (`[LIBRETA]`)
+## 7. PUBLICACIÓN EN GITHUB PAGES
 
-1. **[LIBRETA]** Copia en tu cuaderno el árbol final de directorios del proyecto generado tras ejecutar `mkdocs build`, indicando qué función cumple la carpeta `site/` frente a la carpeta `docs/`.
-2. **[LIBRETA]** Explica qué ocurriría si intentas ejecutar el comando `mkdocs serve` en una terminal nueva sin haber activado previamente el entorno virtual (`source venv/bin/activate`).
-3. **[PRÁCTICA EN EQUIPO]** Personaliza el archivo `mkdocs.yml` añadiendo una nueva sección en el menú lateral titulada `"Entorno Lerd"` que contenga una guía rápida con los comandos básicos de terminal para desplegar un contenedor web.
+Cuando queramos publicar nuestro sitio para que sea visible, podemos usar el comando que proporciona properdocs, y que funcionará correctamente sin hacer ninguna configuración más si hemos seguido todos los pasos de esta práctica.
+
+Para ello escribimos:
+
+```bash
+properdocs gh-deploy
+```
+
+Y se iniciará el proceso de creación de ramas, configuración y publicación del sitio manera automática. Emitiendo unos mensajes parecidos a los siguientes:
+
+```bash
+INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: /Users/joaquin/GitHub/proyecto2627/site
+INFO    -  Documentation built in 0.11 seconds
+INFO    -  Copying '/Users/joaquin/GitHub/proyecto2627/site' to 'gh-pages' branch and pushing to GitHub.
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (9/9), 3.50 KiB | 3.50 MiB/s, done.
+Total 9 (delta 7), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+To https://github.com/joaquinalbares/proyecto2627.git
+   62746d3..5e31d06  gh-pages -> gh-pages
+INFO    -  Your documentation should shortly be available at: https://joaquinalbares.github.io/proyecto2627/
+```
+
+Si esperamos unos minutos, ya podremos ver nuestra página publicada en Internet: 
+
+**[https://joaquinalbares.github.io/proyecto2627/](https://joaquinalbares.github.io/proyecto2627/)**
