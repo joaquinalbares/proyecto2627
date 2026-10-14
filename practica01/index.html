@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>PRACTICA 01 - CONFIGURACIÓN E INSTALACIÓN DEL ENTORNO - Desarrollo Web en Entorno Servidor 2026/27</title>
+    <title>PRACTICA 01 - CONFIGURACIÓN E INSTALACIÓN DEL ENTORNO - Proyecto Interdisciplinar 2026/27</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Desarrollo Web en Entorno Servidor 2026/27
+          <a href=".." class="icon icon-home"> Proyecto Interdisciplinar 2026/27
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" title="Escriba el término de búsqueda aquí" />
@@ -111,7 +111,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Menú de navegación en móvil">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Desarrollo Web en Entorno Servidor 2026/27</a>
+          <a href="..">Proyecto Interdisciplinar 2026/27</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -235,19 +235,19 @@
 <li>Abrimos una ventana de terminal.</li>
 <li>Escribe el siguiente comando y pulsa <strong>Enter</strong>:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>--version
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">python --version
+</code></pre>
 <ol>
 <li>Si la instalación ha sido correcta, el sistema responderá mostrando la versión instalada (ejemplo: <code>Python 3.12.2</code>).</li>
 </ol>
-<div class="highlight"><pre><span></span><code>  ┌──────────────────────────────────────────────────────────────┐
+<pre class="highlight"><code class="language-text">  ┌──────────────────────────────────────────────────────────────┐
   │ C:\Users\Usuario&gt; python --version                           │
   │ Python 3.12.2                                                │
   │                                                              │
   │ C:\Users\Usuario&gt; pip --version                              │
   │ pip 24.0 from C:\...\python312\Lib\site-packages...          │
   └──────────────────────────────────────────────────────────────┘
-</code></pre></div>
+</code></pre>
 <h3 id="paso-7-y-si-no-funciona-pip">Paso 7: ¿Y SI NO FUNCIONA PIP?</h3>
 <p>Si tras instalar Python ejecutas <code>pip</code> en la terminal o símbolo del sistema (CMD) y obtienes un mensaje de error como <strong>«'pip' no se reconoce como un comando interno o externo»</strong> o <strong>«command not found»</strong>, significa que el sistema operativo no sabe dónde encontrar el ejecutable de <code>pip</code>.</p>
 <p>Esto sucede principalmente porque el ejecutable de Python/pip no está en el PATH.</p>
@@ -262,8 +262,8 @@
 <div class="admonition warning">
 <p class="admonition-title"><strong>SOLUCIÓN ALTERNATIVA</strong></p>
 <p>Descarga el script <a href="https://bootstrap.pypa.io/get-pip.py">https://bootstrap.pypa.io/get-pip.py</a> y ejecútalo</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>get-pip.py
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">python get-pip.py
+</code></pre>
 </div>
 <hr />
 <h2 id="3-instalacion-de-properdocs">3. INSTALACIÓN DE PROPERDOCS</h2>
@@ -273,20 +273,17 @@
 <p>En nuestro caso, y dado que no vamos a desarrollar en python, todas las librerías las instalaremos globalmente sin activar entornos virtuales de python.</p>
 </div>
 <p>Antes de instalar las librerías vamos a actualizar pip:
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
-</code></pre></div></p>
+<pre class="highlight"><code class="language-bash">pip install --upgrade pip</code></pre></p>
 <p>Una vez actualizado, ya podemos instalar properdocs y dos temas adicionales: mkdocs y material:
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>properdocs<span class="w"> </span>properdocs-theme-mkdocs<span class="w"> </span>mkdocs-material
-</code></pre></div></p>
+<pre class="highlight"><code class="language-bash">pip install properdocs properdocs-theme-mkdocs mkdocs-material</code></pre></p>
 <p>Para verificar que la instalación se ha realizado correctamente, ejecuta:</p>
-<div class="highlight"><pre><span></span><code>properdocs<span class="w"> </span>--version
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">properdocs --version
+</code></pre>
 <hr />
 <h2 id="4-inicializacion-y-configuracion-del-proyecto">4. INICIALIZACIÓN Y CONFIGURACIÓN DEL PROYECTO</h2>
 <h3 id="paso-1-clonar-el-repositorio-remoto">Paso 1: Clonar el repositorio remoto</h3>
 <p>En primer lugar, y para asegurarnos que trabajamos con el repositorio de GitHub y que nuestros cambios se van a sincronizar correctamente, vamos a descargarnos nuestro repositorio. Para ello, en GitHub, pulsando  el botoón verde <code>code</code> y eligiendo la pestaña <code>GitHub CLI</code>, vemos el comando que tenemos que escribir par clonar nuestro repositorio.</p>
-<div class="highlight"><pre><span></span><code>gh<span class="w"> </span>repo<span class="w"> </span>clone<span class="w"> </span>joaquinalbares/proyecto2627
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">gh repo clone joaquinalbares/proyecto2627</code></pre>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <ul>
@@ -295,68 +292,63 @@
 </ul>
 </div>
 <p>Ahora accedemos al repositorio en inicializamos un nuevo proyecto de ProperDocs dentro de la carpeta actual:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>proyecto2627
-properdocs<span class="w"> </span>new<span class="w"> </span>.
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">cd proyecto2627
+properdocs new .</code></pre>
 <p>Este comando habrá creado la siguiente estructura en tu directorio:</p>
-<div class="highlight"><pre><span></span><code>docs/
+<pre class="highlight"><code class="language-text">docs/
   └── index.md        # Página principal de la documentación
-properdocs.yml        # Archivo de configuración global
-</code></pre></div>
+properdocs.yml        # Archivo de configuración global</code></pre>
 <h3 id="paso-2-configurar-el-archivo-properdocsyml">Paso 2: Configurar el archivo <code>properdocs.yml</code></h3>
 <p>Abre la carpeta del proyecto con tu editor preferido (recomiendo <strong><a href="">Zed</a><a href="https://zed.dev/">https://zed.dev/</a>)</strong> y sustituye el contenido del archivo <code>properdocs.yml</code> por la siguiente configuración completa que activa el tema <strong><code>readthedocs</code></strong> y organiza la navegación del sitio:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Proyecto</span><span class="nv"> </span><span class="s">Intermodular&quot;</span>
-<span class="nt">site_description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Proyecto</span><span class="nv"> </span><span class="s">Intermodular</span><span class="nv"> </span><span class="s">del</span><span class="nv"> </span><span class="s">Ciclo</span><span class="nv"> </span><span class="s">Formativo</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">Desarrollo</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">aplicaciones</span><span class="nv"> </span><span class="s">Web&quot;</span>
-<span class="nt">site_author</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Alumno</span><span class="nv"> </span><span class="s">DAW</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">IES</span><span class="nv"> </span><span class="s">Los</span><span class="nv"> </span><span class="s">Albares&quot;</span>
+<pre class="highlight"><code class="language-yaml">site_name: "Proyecto Intermodular"
+site_description: "Proyecto Intermodular del Ciclo Formativo de Desarrollo de aplicaciones Web"
+site_author: "Alumno DAW - IES Los Albares"
 
-<span class="c1"># Selección del tema Read the Docs</span>
-<span class="nt">theme</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">readthedocs</span>
-<span class="w">  </span><span class="nt">highlightjs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">hljs_languages</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">php</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">json</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">html</span>
+# Selección del tema Read the Docs
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - php
+    - bash
+    - json
+    - html
 
-<span class="c1"># Estructura de navegación lateral</span>
-<span class="nt">nav</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Inicio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span>
+# Estructura de navegación lateral
+nav:
+  - Inicio: index.md
 
-<span class="c1"># Opciones adicionales</span>
-<span class="nt">markdown_extensions</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tables</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codehilite</span>
-</code></pre></div>
+# Opciones adicionales
+markdown_extensions:
+  - tables
+  - codehilite
+</code></pre>
 <hr />
 <h2 id="6-previsualizacion-y-compilacion">6. PREVISUALIZACIÓN Y COMPILACIÓN</h2>
 <p>Inicia el servidor interno de pruebas de MkDocs:</p>
-<div class="highlight"><pre><span></span><code>properdocs<span class="w"> </span>serve
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">properdocs serve</code></pre>
 <p>Abre tu navegador e introduce la dirección local indicada por la terminal (por defecto, <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>). Verás el sitio que ha generado con la interfaz temática de <strong>Read the Docs</strong> cargada con tu contenido. Cualquier cambio que guardes en los archivos <code>.md</code> a partir de ahora y mientras estés sirvinedo el sitio, se actualizará automáticamente en la pantalla.</p>
 <p>Podemos detener el servicio pulsando <code>Ctrl+C</code>.</p>
 <hr />
 <h2 id="7-publicacion-en-github-pages">7. PUBLICACIÓN EN GITHUB PAGES</h2>
 <p>Cuando queramos publicar nuestro sitio para que sea visible, podemos usar el comando que proporciona properdocs, y que funcionará correctamente sin hacer ninguna configuración más si hemos seguido todos los pasos de esta práctica.</p>
 <p>Para ello escribimos:</p>
-<div class="highlight"><pre><span></span><code>properdocs<span class="w"> </span>gh-deploy
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">properdocs gh-deploy</code></pre>
 <p>Y se iniciará el proceso de creación de ramas, configuración y publicación del sitio manera automática. Emitiendo unos mensajes parecidos a los siguientes:</p>
-<div class="highlight"><pre><span></span><code>INFO<span class="w">    </span>-<span class="w">  </span>Cleaning<span class="w"> </span>site<span class="w"> </span>directory
-INFO<span class="w">    </span>-<span class="w">  </span>Building<span class="w"> </span>documentation<span class="w"> </span>to<span class="w"> </span>directory:<span class="w"> </span>/Users/joaquin/GitHub/proyecto2627/site
-INFO<span class="w">    </span>-<span class="w">  </span>Documentation<span class="w"> </span>built<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.11<span class="w"> </span>seconds
-INFO<span class="w">    </span>-<span class="w">  </span>Copying<span class="w"> </span><span class="s1">&#39;/Users/joaquin/GitHub/proyecto2627/site&#39;</span><span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;gh-pages&#39;</span><span class="w"> </span>branch<span class="w"> </span>and<span class="w"> </span>pushing<span class="w"> </span>to<span class="w"> </span>GitHub.
-Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">17</span>,<span class="w"> </span><span class="k">done</span>.
-Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">17</span>/17<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
-Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">8</span><span class="w"> </span>threads
-Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">8</span>/8<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
-Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">9</span>/9<span class="o">)</span>,<span class="w"> </span><span class="m">3</span>.50<span class="w"> </span>KiB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">3</span>.50<span class="w"> </span>MiB/s,<span class="w"> </span><span class="k">done</span>.
-Total<span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">7</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>from<span class="w"> </span><span class="m">0</span><span class="o">)</span>
-remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">7</span>/7<span class="o">)</span>,<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>objects.
-To<span class="w"> </span>https://github.com/joaquinalbares/proyecto2627.git
-<span class="w">   </span>62746d3..5e31d06<span class="w">  </span>gh-pages<span class="w"> </span>-&gt;<span class="w"> </span>gh-pages
-INFO<span class="w">    </span>-<span class="w">  </span>Your<span class="w"> </span>documentation<span class="w"> </span>should<span class="w"> </span>shortly<span class="w"> </span>be<span class="w"> </span>available<span class="w"> </span>at:<span class="w"> </span>https://joaquinalbares.github.io/proyecto2627/
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">INFO    -  Cleaning site directory
+INFO    -  Building documentation to directory: /Users/joaquin/GitHub/proyecto2627/site
+INFO    -  Documentation built in 0.11 seconds
+INFO    -  Copying '/Users/joaquin/GitHub/proyecto2627/site' to 'gh-pages' branch and pushing to GitHub.
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (9/9), 3.50 KiB | 3.50 MiB/s, done.
+Total 9 (delta 7), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+To https://github.com/joaquinalbares/proyecto2627.git
+   62746d3..5e31d06  gh-pages -&gt; gh-pages
+INFO    -  Your documentation should shortly be available at: https://joaquinalbares.github.io/proyecto2627/</code></pre>
 <p>Si esperamos unos minutos, ya podremos ver nuestra página publicada en Internet: </p>
 <p><strong><a href="https://joaquinalbares.github.io/proyecto2627/">https://joaquinalbares.github.io/proyecto2627/</a></strong></p>
               
