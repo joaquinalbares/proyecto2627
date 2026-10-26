@@ -199,7 +199,7 @@ pip install --upgrade pip
 
 Una vez actualizado, ya podemos instalar properdocs y dos temas adicionales: mkdocs y material:
 ```bash
-pip install properdocs properdocs-theme-mkdocs mkdocs-material
+pip install properdocs properdocs-theme-mkdocs mkdocs-material properdocs-theme-readthedocs
 ```
 
 Para verificar que la instalación se ha realizado correctamente, ejecuta:
